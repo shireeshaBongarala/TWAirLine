@@ -12,7 +12,7 @@ public class TwAirApplication {
 
 	@RequestMapping("/")
 	public String home(Model model) {
-        model.addAttribute("name", "Vikram");
+        model.addAttribute("name", "ThoughtWorks");
 		return "FlightSearch";
 	}
 
