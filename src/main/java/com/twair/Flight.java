@@ -5,21 +5,23 @@ import java.util.Calendar;
 public class Flight {
     private String source;
     private String destination;
+    private Plane plane;
     private Calendar departureTime;
     private Calendar arrivalTime;
     private int numberOfSeats;
     private int basePrice;
 
-    public Flight(String source, String destination) {
+    public Flight(String source, String destination, Plane plane) {
         this.source = source;
         this.destination = destination;
+        this.plane = plane;
     }
 
     public String getSource() {
         return source;
     }
 
-    public String getDesination() {
+    public String getDestination() {
         return destination;
     }
 
