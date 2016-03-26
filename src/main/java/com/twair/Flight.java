@@ -54,6 +54,9 @@ public class Flight {
     }
 
     public int getBasePrice() {
+        if(basePrice == 0 && DataSource.planeBasePrice.containsKey(plane.getType())){
+            basePrice  = DataSource.planeBasePrice.get(plane.getType());
+        }
         return basePrice;
     }
 }

@@ -58,4 +58,21 @@ public class FlightTests {
         flight.setBasePrice(1000);
         Assert.assertEquals(1000, flight.getBasePrice());
     }
+
+    @Test
+    public void shouldSetBasePriceBasedOnTypeOfPlane() throws Exception {
+        Plane plane = new Plane("Boeing 777", 195);
+
+        Flight flight = new Flight(source,dest, plane);
+
+        Assert.assertEquals(6000, flight.getBasePrice());
+    }
+    @Test
+    public void shouldSetBasePriceToZeroWhenTypeOfPlaneIsNotAvailable() throws Exception {
+        Plane plane = new Plane("Boeing 77721", 195);
+
+        Flight flight = new Flight(source,dest, plane);
+
+        Assert.assertEquals(0, flight.getBasePrice());
+    }
 }
