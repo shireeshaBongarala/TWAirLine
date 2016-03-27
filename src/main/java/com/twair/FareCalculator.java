@@ -5,11 +5,15 @@ public class FareCalculator {
         return flight.getBasePrice() * noOfPassengers;
     }
 
-    public int calculateBookingAmountForReservationClass(ReservationClass reservationClass, int noOfPassengers) {
+    public double calculateBookingAmountForReservationClass(ReservationClass reservationClass, int noOfPassengers) {
         int basePrice = reservationClass.getBasePrice();
         int availableSeats = reservationClass.getAvailableSeats();
         int totalSeats = reservationClass.getTotalSeats();
-        double percentageOfAvailableSeats = availableSeats/totalSeats;
+
+        double percentageOfAvailableSeats = availableSeats * 100/totalSeats;
+        if(percentageOfAvailableSeats > 10 && percentageOfAvailableSeats < 60) {
+            return basePrice * 1.3 * noOfPassengers;
+        }
         return basePrice * noOfPassengers;
     }
 }

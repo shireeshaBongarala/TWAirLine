@@ -4,6 +4,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,6 +21,9 @@ public class FareCalculatorTest {
     ReservationClass economy;
     @Mock
     Plane plane;
+
+    @Mock
+    ReservationClass business;
 
     @Before
     public void setUp(){
@@ -48,9 +52,9 @@ public class FareCalculatorTest {
         when(economy.getAvailableSeats()).thenReturn(190);
         when(economy.getName()).thenReturn("Economy");
         when(economy.getBasePrice()).thenReturn(6000);
-        int bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 2);
+        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 2);
 
-        Assert.assertEquals(bookingAmount,12000);
+        Assert.assertEquals(bookingAmount,12000, 0.0);
     }
 
     @Test
@@ -61,10 +65,20 @@ public class FareCalculatorTest {
         when(economy.getAvailableSeats()).thenReturn(190);
         when(economy.getName()).thenReturn("Economy");
         when(economy.getBasePrice()).thenReturn(6000);
-        int bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 3);
+        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 3);
 
-       assertEquals(bookingAmount,18000);
+       assertEquals(bookingAmount,18000, 0.0);
     }
-   
 
+    @Test
+    public void shouldCalculateBookingAmountWhenFirstFortyToNinetyPercentOfTotalSeatsAreAvailable() {
+        FareCalculator fareCalculator = new FareCalculator();
+
+        when(economy.getTotalSeats()).thenReturn(195);
+        when(economy.getAvailableSeats()).thenReturn(95);
+        when(economy.getBasePrice()).thenReturn(6000);
+        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 2);
+
+        assertEquals(bookingAmount, 15600, 0.0);
+    }
 }
