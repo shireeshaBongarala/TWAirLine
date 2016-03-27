@@ -4,18 +4,15 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class FareCalculatorTest {
+public class EconomyFareCalculatorTest {
 
     @Mock
     ReservationClass economy;
@@ -38,58 +35,58 @@ public class FareCalculatorTest {
         flight.setBasePrice(6000);
         flight.setScheduleTime(departure, arrival);
 
-        FareCalculator fareCalculator = new FareCalculator();
-        int amount = fareCalculator.calculateBookingAmount(flight, 2);
+        EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
+        int amount = economyFareCalculator.calculateBookingAmount(flight, 2);
 
         Assert.assertEquals(amount, 12000);
     }
 
     @Test
     public void shouldCalculateBookingAmountForTwoPassengersInEconomyClass() {
-        FareCalculator fareCalculator = new FareCalculator();
+        EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
 
         when(economy.getTotalSeats()).thenReturn(195);
         when(economy.getAvailableSeats()).thenReturn(190);
         when(economy.getName()).thenReturn("Economy");
         when(economy.getBasePrice()).thenReturn(6000);
-        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 2);
+        double bookingAmount = economyFareCalculator.calculateBookingAmountForReservationClass(economy, 2);
 
         Assert.assertEquals(bookingAmount,12000, 0.0);
     }
 
     @Test
     public void shouldCalculateBookingAmountForThreePassengersInEconomyClass() {
-        FareCalculator fareCalculator = new FareCalculator();
+        EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
 
         when(economy.getTotalSeats()).thenReturn(195);
         when(economy.getAvailableSeats()).thenReturn(190);
         when(economy.getName()).thenReturn("Economy");
         when(economy.getBasePrice()).thenReturn(6000);
-        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 3);
+        double bookingAmount = economyFareCalculator.calculateBookingAmountForReservationClass(economy, 3);
 
        assertEquals(bookingAmount,18000, 0.0);
     }
 
     @Test
     public void shouldCalculateBookingAmountWhenFirstFortyToNinetyPercentOfTotalSeatsAreAvailable() {
-        FareCalculator fareCalculator = new FareCalculator();
+        EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
 
         when(economy.getTotalSeats()).thenReturn(195);
         when(economy.getAvailableSeats()).thenReturn(95);
         when(economy.getBasePrice()).thenReturn(6000);
-        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 2);
+        double bookingAmount = economyFareCalculator.calculateBookingAmountForReservationClass(economy, 2);
 
         assertEquals(bookingAmount, 15600, 0.0);
     }
 
     @Test
     public void shouldCalculateBookingAmountWhenLessThanTenPercentOfTotalSeatsAreAvailable() {
-        FareCalculator fareCalculator = new FareCalculator();
+        EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
 
         when(economy.getTotalSeats()).thenReturn(195);
         when(economy.getAvailableSeats()).thenReturn(5);
         when(economy.getBasePrice()).thenReturn(6000);
-        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 2);
+        double bookingAmount = economyFareCalculator.calculateBookingAmountForReservationClass(economy, 2);
 
         assertEquals(bookingAmount, 19200, 0.0);
     }
