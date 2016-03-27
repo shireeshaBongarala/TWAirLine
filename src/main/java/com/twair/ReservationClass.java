@@ -16,4 +16,12 @@ public class ReservationClass {
     public String getName() {
         return name;
     }
+
+    public boolean assignSeats(int noOfPassengers) {
+        if (noOfPassengers > availableSeats) {
+            return false;
+        }
+        availableSeats-= noOfPassengers;
+        return true;
+    }
 }
