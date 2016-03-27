@@ -30,4 +30,13 @@ public class ReservationClassTest {
         Assert.assertEquals(195, reservationClass.getAvailableSeats());
         Assert.assertFalse(bookingStatus);
     }
+
+    @Test
+    public void shouldContainTotalNoOfSeats() {
+        ReservationClass reservationClass = new ReservationClass("Economy", 195);
+
+        int totalNoOfSeats = reservationClass.getTotalSeats();
+
+        Assert.assertEquals(195, totalNoOfSeats);
+    }
 }

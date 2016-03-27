@@ -3,10 +3,12 @@ package com.twair;
 public class ReservationClass {
     private String name;
     private int availableSeats;
+    private int totalSeats;
 
-    public ReservationClass(String name, int availableSeats) {
+    public ReservationClass(String name, int totalSeats) {
         this.name = name;
-        this.availableSeats = availableSeats;
+        this.availableSeats = totalSeats;
+        this.totalSeats = totalSeats;
     }
 
     public int getAvailableSeats() {
@@ -23,5 +25,9 @@ public class ReservationClass {
         }
         availableSeats-= noOfPassengers;
         return true;
+    }
+
+    public int getTotalSeats() {
+        return totalSeats;
     }
 }
