@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 public class FareCalculatorTest {
     @Test
     public void shouldCalculateAmountWhenFlightAndNoOfPassengersAreGiven() throws Exception {
-        Flight flight = new Flight("HYD", "BLR", new Plane("Boeing 777", 195));
+        Flight flight = new Flight("HYD", "BLR", new Plane("Boeing 777", 195), null);
         Calendar departure = new GregorianCalendar(2016,4,4, 9, 10, 0);
         Calendar arrival = new GregorianCalendar(2016,4,4, 11, 10, 0);
         flight.setBasePrice(6000);

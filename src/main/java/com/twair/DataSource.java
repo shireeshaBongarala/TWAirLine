@@ -16,9 +16,9 @@ public class DataSource {
     }};
 
     public static Flights flights = new Flights(){{
-        addFlight(new Flight(locations.get(0), locations.get(1), planes.get(0)));
-        addFlight(new Flight(locations.get(0), locations.get(1), planes.get(1)));
-        addFlight(new Flight(locations.get(0), locations.get(1), planes.get(2)));
+        addFlight(new Flight(locations.get(0), locations.get(1), planes.get(0), null));
+        addFlight(new Flight(locations.get(0), locations.get(1), planes.get(1), null));
+        addFlight(new Flight(locations.get(0), locations.get(1), planes.get(2), null));
     }};
 
     public static HashMap<String, Integer> planeBasePrice= new HashMap<String, Integer>() {{

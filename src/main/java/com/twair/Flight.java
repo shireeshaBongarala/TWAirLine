@@ -1,6 +1,7 @@
 package com.twair;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class Flight {
     private String source;
@@ -10,11 +11,13 @@ public class Flight {
     private Calendar arrivalTime;
     private int numberOfSeats;
     private int basePrice;
+    private List<ReservationClass> reservationClasses;
 
-    public Flight(String source, String destination, Plane plane) {
+    public Flight(String source, String destination, Plane plane, List<ReservationClass> reservationClasses) {
         this.source = source;
         this.destination = destination;
         this.plane = plane;
+        this.reservationClasses = reservationClasses;
     }
 
     public String getSource() {
@@ -58,5 +61,9 @@ public class Flight {
             basePrice  = DataSource.planeBasePrice.get(plane.getType());
         }
         return basePrice;
+    }
+
+    public List<ReservationClass> getReservationClasses() {
+        return reservationClasses;
     }
 }

@@ -20,9 +20,9 @@ public class FlightsTests {
     public void shouldReturnListOfFlightsForSourceDestination() throws Exception {
         Plane plane1 = new Plane("type1", 30);
         Plane plane2 = new Plane("type2", 60);
-        Flight flight1 = new Flight(source, destination, plane1);
-        Flight flight2 = new Flight("TestSource1", destination, plane2);
-        Flight flight3 = new Flight(source, destination, plane1);
+        Flight flight1 = new Flight(source, destination, plane1, null);
+        Flight flight2 = new Flight("TestSource1", destination, plane2, null);
+        Flight flight3 = new Flight(source, destination, plane1, null);
         Flights allFlights = new Flights();
         allFlights.addFlight(flight1);
         allFlights.addFlight(flight2);
