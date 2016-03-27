@@ -14,6 +14,9 @@ public class FareCalculator {
         if(percentageOfAvailableSeats > 10 && percentageOfAvailableSeats < 60) {
             return basePrice * 1.3 * noOfPassengers;
         }
+        if(percentageOfAvailableSeats < 10) {
+            return basePrice * 1.6 * noOfPassengers;
+        }
         return basePrice * noOfPassengers;
     }
 }

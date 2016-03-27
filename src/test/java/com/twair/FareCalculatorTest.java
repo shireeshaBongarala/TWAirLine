@@ -81,4 +81,16 @@ public class FareCalculatorTest {
 
         assertEquals(bookingAmount, 15600, 0.0);
     }
+
+    @Test
+    public void shouldCalculateBookingAmountWhenLessThanTenPercentOfTotalSeatsAreAvailable() {
+        FareCalculator fareCalculator = new FareCalculator();
+
+        when(economy.getTotalSeats()).thenReturn(195);
+        when(economy.getAvailableSeats()).thenReturn(5);
+        when(economy.getBasePrice()).thenReturn(6000);
+        double bookingAmount = fareCalculator.calculateBookingAmountForReservationClass(economy, 2);
+
+        assertEquals(bookingAmount, 19200, 0.0);
+    }
 }
