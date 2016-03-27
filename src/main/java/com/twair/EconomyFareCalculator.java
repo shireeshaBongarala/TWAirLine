@@ -1,9 +1,7 @@
 package com.twair;
 
 public class EconomyFareCalculator {
-    public int calculateBookingAmount(Flight flight, int noOfPassengers) {
-        return flight.getBasePrice() * noOfPassengers;
-    }
+
 
     public double calculateBookingAmountForReservationClass(ReservationClass reservationClass, int noOfPassengers) {
         int basePrice = reservationClass.getBasePrice();

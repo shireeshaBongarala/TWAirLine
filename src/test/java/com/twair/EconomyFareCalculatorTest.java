@@ -26,21 +26,7 @@ public class EconomyFareCalculatorTest {
     public void setUp(){
         initMocks(this);
     }
-
-    @Test
-    public void shouldCalculateAmountWhenFlightAndNoOfPassengersAreGiven() throws Exception {
-        Flight flight = new Flight("HYD", "BLR", new Plane("Boeing 777", 195), null);
-        Calendar departure = new GregorianCalendar(2016, 4, 4, 9, 10, 0);
-        Calendar arrival = new GregorianCalendar(2016, 4, 4, 11, 10, 0);
-        flight.setBasePrice(6000);
-        flight.setScheduleTime(departure, arrival);
-
-        EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
-        int amount = economyFareCalculator.calculateBookingAmount(flight, 2);
-
-        Assert.assertEquals(amount, 12000);
-    }
-
+    
     @Test
     public void shouldCalculateBookingAmountForTwoPassengersInEconomyClass() {
         EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
