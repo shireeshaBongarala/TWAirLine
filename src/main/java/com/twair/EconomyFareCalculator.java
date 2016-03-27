@@ -1,6 +1,6 @@
 package com.twair;
 
-public class EconomyFareCalculator {
+public class EconomyFareCalculator implements FareCalculator {
 
 
     public double calculateBookingAmountForReservationClass(ReservationClass reservationClass, int noOfPassengers) {
