@@ -1,16 +1,20 @@
 package com.twair;
 
+import java.util.Calendar;
+
 public class ReservationClass {
     private String name;
     private int availableSeats;
     private int totalSeats;
     private int basePrice;
+    private Calendar dateOfTravel;
 
-    public ReservationClass(String name, int totalSeats, int basePrice) {
+    public ReservationClass(String name, int totalSeats, int basePrice, Calendar dateOfTravel) {
         this.name = name;
         this.availableSeats = totalSeats;
         this.totalSeats = totalSeats;
         this.basePrice = basePrice;
+        this.dateOfTravel = dateOfTravel;
     }
 
     public int getAvailableSeats() {
@@ -35,5 +39,9 @@ public class ReservationClass {
 
     public int getBasePrice() {
         return basePrice;
+    }
+
+    public Calendar getDateOfTravel() {
+        return dateOfTravel;
     }
 }

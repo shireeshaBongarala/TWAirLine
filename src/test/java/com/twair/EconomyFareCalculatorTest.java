@@ -26,7 +26,7 @@ public class EconomyFareCalculatorTest {
     public void setUp(){
         initMocks(this);
     }
-    
+
     @Test
     public void shouldCalculateBookingAmountForTwoPassengersInEconomyClass() {
         EconomyFareCalculator economyFareCalculator = new EconomyFareCalculator();
