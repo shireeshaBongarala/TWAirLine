@@ -82,9 +82,9 @@ public class FlightTests {
     public void shouldContainResevationClasses() {
         Plane plane = new Plane("Boeing 777", 238);
 
-        ReservationClass economy = new ReservationClass("Economy", 195);
-        ReservationClass business = new ReservationClass("Business", 35);
-        ReservationClass first = new ReservationClass("First", 8);
+        ReservationClass economy = new ReservationClass("Economy", 195, 0);
+        ReservationClass business = new ReservationClass("Business", 35, 0);
+        ReservationClass first = new ReservationClass("First", 8, 0);
         List<ReservationClass> reservationClassList = new ArrayList<>();
         reservationClassList.add(economy);
         reservationClassList.add(business);
