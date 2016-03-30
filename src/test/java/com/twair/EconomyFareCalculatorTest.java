@@ -19,8 +19,6 @@ public class EconomyFareCalculatorTest {
     @Mock
     Plane plane;
 
-    @Mock
-    ReservationClass business;
 
     @Before
     public void setUp(){
